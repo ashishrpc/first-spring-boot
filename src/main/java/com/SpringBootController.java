@@ -2,18 +2,19 @@ package com;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Import;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-@Controller
-@EnableAutoConfiguration
-@Import(MultipleController.class)
 /*
  * CMD> netstat -nao|find "8080"
  * CMD> taskkill /F /PID 6344
  */
+@Controller
+@SpringBootApplication //The @SpringBootApplication annotation is equivalent to using @Configuration, @EnableAutoConfiguration and @ComponentScan
+@Import(MultipleController.class) 
 public class SpringBootController {
 	@RequestMapping("/")
 	@ResponseBody
